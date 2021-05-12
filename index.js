@@ -4,13 +4,11 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 const app = express();
-
-app.use("/students", studentRoutes);
-
+app.use(cors());
 app.use(express.json({ limit: "20mb", extended: true }));
 app.use(express.urlencoded({ limit: "20mb", extended: true }));
 
-app.use(cors());
+app.use("/students", studentRoutes);
 
 const CONNECTION_URL =
 	"mongodb+srv://g_ram84:JeFM4rfM@j5PdF4@cluster0.4f7sr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
